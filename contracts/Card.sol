@@ -44,21 +44,13 @@ contract Card is ERC721 {
     }
 
     function getImage(uint256 tokenId) public view returns (string memory) {
-        address addr = ownerOf(tokenId);
+        // address addr = ownerOf(tokenId);
         bytes memory svg = abi.encodePacked(
-            '<svg viewBox="0 0 640 360" width="640" height="360" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">',
-            '<rect fill="#fff" stroke="#000" stroke-width="5" x="3" y="3" width="634" height="354" rx="20" ry="20"></rect>',
-            '<path fill="none" stroke="#000" stroke-width="5" d="M 130.001 130.001 C 149.242 130.001 161.266 109.166 151.65 92.5 C 147.182 84.767 138.925 80 130.001 80 C 110.75 80 98.725 100.833 108.35 117.5 C 112.817 125.233 121.067 130.001 130.001 130.001 Z M 180 171.667 C 180 180 171.667 180 171.667 180 L 88.334 180 C 88.334 180 80 180 80 171.667 C 80 163.333 88.334 138.333 130.001 138.333 C 171.667 138.333 180 163.333 180 171.667 Z"></path>',
-            '<text fill="#000" style="font-family: Arial; font-size: 48px;" x="220" y="150">',
-            getAbbrAddress(addr),
-            "</text></svg>"
+            "https://xvx-1309942197.cos.ap-shanghai.myqcloud.com/",tokenId.toString(),".svg"
         );
         return
             string(
-                abi.encodePacked(
-                    "data:image/svg+xml;base64,",
-                    Base64.encode(svg)
-                )
+                abi.encodePacked(svg)
             );
     }
 
