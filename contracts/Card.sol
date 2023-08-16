@@ -30,10 +30,7 @@ contract Card is ERC721 {
         );
         return
             string(
-                abi.encodePacked(
-                    "data:application/json;base64,",
-                    Base64.encode(json)
-                )
+                json
             );
     }
 

@@ -14,6 +14,11 @@ async function main() {
   console.log(
     `Card deployed to ${addr}`
   );
+  await card.mint();
+  const token_uri = await card.tokenURI(0)
+  console.log(`Card tokenURI to ${token_uri}`)
+  const image = await card.getImage(0)
+  console.log(`Card getImage to ${image}`)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
